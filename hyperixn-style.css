@@ -1,10 +1,21 @@
 /* Anilist.co Custom CSS
 ## - Name:        hyperixn-style.css
 ## - Author:      @Hyperixn
-## - Last Update: 2021/04/07
+## - Last Update: 2021/04/10
 
 
-Changelog
+::Changelog::
+2021/04/10:
+- Re-factored code
+- Fixed .wrap code -> Added DATA-v again (need to remove)
+
+
+2021/04/08:
+- Fixed Activities after update
+- Fixed Replies after update
+- Fixed Bio after update
+
+
 2021/04/07:
 - initial release 
 
@@ -66,7 +77,6 @@ Changelog
 - Added focus avatars in activities
 - Added focus favourites
 */
-
 
 /*  --------------------------------------------| BACKGROUND |----------------------------------------------- */
 #app {
