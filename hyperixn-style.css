@@ -78,19 +78,187 @@
 - Added focus favourites
 */
 
-/*  --------------------------------------------| BACKGROUND |----------------------------------------------- */
+/* 
+    ============================
+This CSS is a laboratory smash together from multiple CSS src's, changed and edited by myself.
+
+    Code Credits [Created by]:
+    * anilist.co/user/Anzu
+    * anilist.co/user/BlueTaku -> Banner Font Only
+    * anilist.co/user/Megumin (Kurisu)
+    * anilist.co/user/Sigma
+    ============================
+    Code Credits [Edited by]:
+    * anilist.co/user/Hyperixn
+    ============================
+*/
+
+/*  --------------------------------------------| ANIMATIONS || BASE: SIGMA |----------------------------------------------- */
+
+@charset "UTF-8";
+
+/*!
+ * animate.css - https://animate.style/
+ * Version - 4.1.1
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ *
+ * Copyright (c) 2020 Animate.css
+ */
+
+:root {
+    --animate-duration: 1s;
+    --animate-delay: 1s;
+    --animate-repeat: 1
+}
+
+@keyframes swing {
+    20% { transform: rotate3d(0, 0, 1, 40deg); }
+    40% { transform: rotate3d(0, 0, 1, -40deg); }
+    60% { transform: rotate3d(0, 0, 1, 20deg); }
+    80% { transform: rotate3d(0, 0, 1, -20deg); }
+    to { transform: rotate3d(0, 0, 1, 0deg) -webkit-animation-fill-mode: forwards; }
+}
+
+@keyframes hinge {
+  0% { animation-timing-function: ease-in-out; }
+
+  20%, 60% {
+    transform: rotate3d(0, 0, 1, 20deg);
+    animation-timing-function: ease-in-out;
+  }
+
+  40%, 80% {
+    transform: rotate3d(0, 0, 1, 10deg);
+    animation-timing-function: ease-in-out;
+    opacity: 1;
+  }
+
+  to {
+    transform: translate3d(0, 700px, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInDownBig {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -2000px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInDownBig { animation-name: fadeInDownBig; }
+
+.fadeInLeft { animation-name: fadeInLeft; }
+
+.hinge {
+    animation-duration: calc(var(--animate-duration) * 2);
+    animation-name: hinge;
+    transform-origin: top left;
+}
+
+.swing {
+    -webkit-transform-origin: top center;
+    transform-origin: top center;
+    -webkit-animation-name: swing;
+    animation-name: swing;
+}
+
+/*  --------------------------------------------| SETTINGS || BASE: ANZU |----------------------------------------------- */
+
+:root, .site-theme-dark, .site-theme-contrast {
+  /* General Settings */
+  --hokaze-br: 10px; /* Global Border Radius */
+  --hokaze-pv: 30px; /* Vertical Content Padding */
+  --hokaze-ph: 30px; /* Horizontal Content Padding */
+  --hokaze-bt: 0.3;  /* Content Background Transparency*/
+  --hokaze-nr: 30px; /* Navbar Border Radius */
+  --hokaze-nl: 80%;  /* Navbar Length */
+  --hokaze-sb: 4px;  /* Scrollbar Width */
+  --hokaze-vo: 0.7;  /* Opacity For Various Elements */
+  --hokaze-vs: 0.975;  /* Scale For Various Elements */text
+  --hokaze-vb: 2px;  /* Various Avatar Border Thickness */
+  --hokaze-sr: 4px;  /* Social Page Border Thickness */
+  --hokaze-fr: 30px; /* Footer Border Radius */
+  --hokaze-fl: 85%;  /* Footer Length */
+  --hokaze-bl: 4px;  /* Background 'Window' Blur Amount */
+  --hokaze-rs: 1.025; /* Scaling For Load More Button And Activity Input */
+  --hokaze-gs: var(--color-blue);    /* Stats Wrap Gradient Start Color */
+  --hokaze-ge: var(--color-blue-dim);    /* Stats Wrap Gradient End Color */
+  --hokaze-vt: all 0.5s ease-in-out; /* Transition For Various Elements */
+  --hokaze-li: initial; /* Anilist Logo Source */ 
+  --hokaze-lb: 0px;     /* Anilist Logo Border Thickness */
+  --hokaze-lr: 0px;     /* Anilist Logo Border Radius */
+  --hokaze-ls: 1.2;     /* Anilist Logo Hover Scaling */
+  --hokaze-bs: rgba(0, 0, 0, 0.07) 0px 1px 2px, /* Box Shadow */
+               rgba(0, 0, 0, 0.07) 0px 2px 4px,
+               rgba(0, 0, 0, 0.07) 0px 4px 8px,
+               rgba(0, 0, 0, 0.07) 0px 8px 16px;
+  --hokaze-ns: rgba(0, 0, 0, 0.07) 0px 1px 2px, /* Box Shadow For Navbar */
+               rgba(0, 0, 0, 0.07) 0px 2px 4px;
+
+/*  --------------------------------------------| AVATAR SETTINGS || BASE: ANZU |----------------------------------------------- */
+
+  --hokaze-as: 90px;   /* Avatar Size: One Value = Square, Two Values = Rectangle */
+  --hokaze-ap: 50% 20%; /* Inner Avatar Position */
+  --hokaze-ai: 100%; /* Avatar Size */
+  --hokaze-ab: 2px;   /* Avatar Border Thickness */
+  --hokaze-ar: 255px;  /* Avatar Border Radius */
+  --hokaze-at: all 1s ease-in-out; /* Avatar Hover Transition */
+  --hokaze-av: url("https://i.pinimg.com/originals/8e/ed/76/8eed765a370c4e79c30a8656f1fcd108.jpg");  /* Avatar Picture Link */
+  --hokaze-ah: 1.1; /* Avatar Hover Scale */
+
+/*  --------------------------------------| MATHS - DON'T TOUCH || BASE: ANZU |----------------------------------------- */
+
+  --hokaze-brt: var(--hokaze-br) var(--hokaze-br) 0 0;
+  --hokaze-brb: 0 0 var(--hokaze-br) var(--hokaze-br);
+  --hokaze-bra: var(--hokaze-br) var(--hokaze-br) var(--hokaze-br) var(--hokaze-br);
+  --hokaze-pdh: var(--hokaze-pv) var(--hokaze-ph);
+  --hokaze-maw: calc(1520px - 2 * ( 100px - var(--hokaze-ph)));
+  --hokaze-abs: var(--hokaze-ab) solid rgb(var(--color-foreground));
+  --hokaze-nbr: 0 0 var(--hokaze-nr) var(--hokaze-nr);
+  --hokaze-nbl: calc((100% - var(--hokaze-nl)) / 2);
+  --hokaze-fbr: var(--hokaze-fr) var(--hokaze-fr) 0 0;
+  --hokaze-fbl: calc((100% - var(--hokaze-fl)) / 2);
+  --hokaze-bch: calc(330px - 75px);
+  --hokaze-bcc: calc(var(--hokaze-bch) / 2);
+  --hokaze-bctc: calc(var(--hokaze-bcc) - 36px / 2 );
+  --hokaze-vab: var(--hokaze-vb) solid rgb(var(--color-background));  
+  --hokaze-sab: var(--hokaze-sr) solid rgb(var(--color-background));
+  --hokaze-lob: var(--hokaze-lb) solid rgb(var(--color-blue));
+}
+
+/*  --------------------------------------------| M A I N-C O D E |----------------------------------------------- */
+/*  --------------------------------------------| BACKGROUND || BASE: SIGMA  |----------------------------------------------- */
+
 #app {
-    background-color: rgb(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.25);
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;    
 }
 
-/* Background image */
 body {
-    background-color: rgb(var(--color-background));
-    background: url("https://images.hdqwalls.com/wallpapers/anime-scenery-field-4k-9j.jpg");
+    cursor: url(https://i.imgur.com/YFvThDh.png), auto;
+    background-color: rgba(var(--color-background));
+    background: url("https://wallpapercave.com/wp/wp5758189.jpg");
 
     background-position: center / 100%;
     background-repeat: no-repeat;
@@ -98,323 +266,493 @@ body {
     background-attachment: fixed;
 }
 
-/* Blur Behind Main Feed - causes an issue, creates a .div.v-modal when called (slight black screen when editing, no solution as of yet) */
-/* Off by Default */
+/*  -----------------------------------------| HEADER NAV BAR || BASE: ANZU |-------------------------------------------- */
+
+#nav {
+    background: rgb(var(--color-foreground)) !important;
+    color: rgb(var(--color-text-light)) !important;
+    border-radius: var(--hokaze-nbr);
+    left: var(--hokaze-nbl);
+    width: var(--hokaze-nl);
+    box-shadow: var(--hokaze-bs);
+}
+
+.hide, .nav.nav-unscoped {
+    top: -60px !important;
+}
+
+.nav.nav-unscoped.transparent, .nav:hover {
+    top: 0px !important;
+}
+
+.links > .link:hover {
+    color: rgba(240, 60, 155, 1);
+}
+
+#app > .progress {
+    background-color: rgb(var(--color-blue));
+}
+
+.logo > img {
+    content: url("https://cdn.countryflags.com/thumbs/scotland/flag-heart-3d-250.png");
+    border-radius: var(--hokaze-lr);
+    border: var(--hokaze-lob);
+    transition: var(--hokaze-vt);
+}
+
+.logo > img:hover {
+    transform: scale(var(--hokaze-ls));
+}
+
+/*  -----------------------------------------| BANNER || BASE: ANZU |-------------------------------------------- */
 .content.container {
-    border-style: solid;
-    border-width: thin;
-    border-top: 0px;
-    border-color: rgba(0, 0, 0, 0.0);
-
-    background: rgba(var(--color-foreground), 0.4);
-    backdrop-filter: blur(1px);
+    padding-top: -25px;
+    backdrop-filter: blur(15px);
 }
 
-/* Turn blur on when mouse is on main container*/
-.content.container:hover {
-    border-color: rgba(160, 0, 255, 0.3);
-    background: rgba(var(--color-foreground), 1.0);
-    backdrop-filter: blur(5px);
+.banner {
+    visibility: hidden;
 }
 
-/* Transparent banner image */
-.banner[data-v-5445dac8] {
-    background-image: none !important;
-    background-color: rgb(36,37,56,0);
+.banner > .container {
+    visibility: visible;
+    align-items: center;
+    justify-content: center;
+    transform: translate(500px, 0px);
 }
 
-/* Banner Avatar Changes - Add Border */
-.banner-content > .avatar[data-v-5445dac8] {
-    border-style: solid;
-    border-width: thin;
-    border-radius: 100px;
-    border-color: rgba(0, 0, 0, 0.5);
+.container > .banner-content {
+    width: 0;
+    height: var(--hokaze-bch);
+    margin-left: -900px;
+    margin-bottom: -10px;
 
-    overflow: visible;
-}
-/* Banner Avatar Changes on hover - Change colour / highlight */
-.avatar[data-v-5445dac8]:hover {
-    border-style: solid;
-    border-width: thin;
-    border-radius: 100px;
-    border-color: rgba(160, 0, 255, 0.5);
-
-    overflow: visible;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Banner Name Changes - Change Font and Colour */
-.banner-content > .name[data-v-5445dac8] {
-    font-family: "Times New Roman", Times, serif;
-    font-weight: bold;
-    color: rgba(240, 60, 155, 0.8);
+.banner-content > .avatar {
+    width: 0;
+    height: 0;
+    padding: var(--hokaze-as);
+    background: var(--hokaze-av);
+    background-size: var(--hokaze-ai);
+    background-repeat: no-repeat;
+    background-position: var(--hokaze-ap);
+    border-radius: var(--hokaze-ar);
+    border: var(--hokaze-abs);
+    box-shadow: var(--hokaze-bs);
+
+    transform: rotate(-5deg);
+    animation: fadeInDownBig, swing;
+    animation-duration: 2s, 20s;
+    animation-iteration-count: 1, infinite;
+
+    transition: var(--hokaze-at);
 }
 
-/* Banner Name Changes on hover - Change colour / highlight */
-.banner-content > .name[data-v-5445dac8]:hover {
-    font-family: "Times New Roman", Times, serif;
-    font-weight: bold;
-    color: rgba(160, 0, 255, 0.5);
+.banner-content > .name-wrapper .name {
+    font-size: 7.5rem;
+    padding: 30px 50px 0px 10px;
+    display: flex;
+    align-items: center;
+
+    font-family: "Satisfy", serif;
+    filter: drop-shadow(0px 0px 6px black);
 }
 
-/*  ----------------------------------| STATS | ACTIVITIES | COMMENTS |-------------------------------------- */
+.banner-content > .name-wrapper h1.name {
+    font-family: "Satisfy", serif;
+    filter: drop-shadow(0px 0px 6px black);
 
-/* Stats and Milestones - Add rounded border */
-.list-stats {
-    border-style: solid;
-    border-width: thin;
-    border-color: rgba(0, 0, 0, 0.5);
+    transform: translate(-50px, 0px);
+    opacity:0;
 }
 
-/* Stats and Milestones on hover - Change colour / highlight */
-.list-stats:hover {
-    border-color: rgba(160, 0, 255, 0.5);
+.banner-content > .mod-badge {
+    position: absolute;
+    bottom: var(--hokaze-bctc);
+    margin: 0;
+    padding: 11.5px 10px;
+    transition: var(--hokaze-at);
 }
 
-/* Activity creator - Add rounded border */
-.input {
-    border-style: solid;
-    border-width: thin;
-    border-color: rgba(0, 0, 0, 0.5);
-
-    overflow: visible;
+.banner-content > .mod-badge:hover {
+    background: rgba(var(--color-blue),1);
 }
 
-/* Activity creator on hover - Change colour / highlight */
-.input:hover {
-    border-color: rgba(160, 0, 255, 0.5);
+.banner-content > .actions {
+    position: absolute;
+    bottom: var(--hokaze-bctc);
+    margin: 0;
+    padding: 0;
+
+    transform: translateX(-100px);
+    opacity: 0;
 }
 
-/* Activities [Avatar] and Activity Comments [Avatar] Changes - Add rounded border */
-.text .avatar[data-v-6c3dc0b8], .reply .avatar[data-v-5a191921]{
-    border-style: solid;
-    border-width: thin;
-    border-radius: 20px;
-    border-color: rgba(0, 0, 0, 0.5);
+.actions > .nav-btn {
+    width: 100px;
+    padding: 5px 5px;
+
+    transition: var(--hokaze-at);
+    opacity: 0;
 }
 
-/* Activities [Avatar] and Activity Comments [Avatar] on hover - Change colour / highlight */
-.text .avatar[data-v-6c3dc0b8]:hover, .reply .avatar[data-v-5a191921]:hover{
-    border-color: rgba(160, 0, 155, 0.5);
+.banner-content:hover > .avatar {
+    border-color: rgb(var(--color-blue));
+    transform: scale(var(--hokaze-ah));
 }
 
-/* Activities [Anime/Manga Updates] - Add rounded border */
-.cover[data-v-6c3dc0b8]{
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+.banner-content:hover > .mod-badge {
+    transform: translateX(-170px);
+}
+
+.banner-content:hover > .actions {
+    transform: translateX(185px);
+    opacity: 1;
+}
+
+.banner-content:hover > .actions > .nav-btn {
+    transform: translate(10px, -10px);
+
+    animation: fadeInLeft, hinge;
+    animation-duration: 2s, 8s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+
+    transition: var(--hokaze-at);
+}
+
+.banner-content:hover > .name-wrapper > .name {
+    transform: translateX(5px);
+
+    animation: fadeInLeft, hinge;
+    animation-duration: 2s, 7s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+
+    transition: var(--hokaze-at);
+    opacity: 1;
+}
+
+.header-wrap .nav-wrap .nav .link {
+  margin: 0 30px;
+  font-size: 1.7rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0);
+  transition: 0.5s;
+}
+
+.header-wrap .nav-wrap .nav .link:hover {
+  border-bottom: 2px solid rgba(var(--color-blue), 0.35);
+  transition: 0.2s;
+}
+
+.header-wrap .nav-wrap .nav .link.router-link-active {
+  border-bottom: 3px solid rgba(var(--color-blue), 1);
+}
+
+.header-wrap .nav-wrap .nav .link:nth-child(7),
+.header-wrap .nav-wrap .nav .link:nth-child(8) {
+  width: 0;
+  margin: 0;
+  padding: 0;
+  visibility: hidden;
+}
+
+/*  ---------------------------------| NAME TAGS || BASE: SKYLARSAYS (UNKNOWN ORIGINNAL) |--------------------------------------- */
+.text > .header > .name::after, .reply > .header > .name::after {
+  /*content: 'Cutie';*/
+  position: relative;
+  top: -1px;
+  left: 4px;
+
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 20px !important;
+  border-color: rgba(0, 0, 0, 1);
+  background-color: rgba(160, 35, 255, 0.15);
+
+  padding: 5px 8px;
+  margin-bottom: 20px;
+  margin-right: 16px;
+
+  font-size: 1.15rem;
 }
 
 
-/* Activities [Main + BugFix] and Activity Comments [Main + BugFix] - Add rounded border and check for overflow */
-.wrap[data-v-6c3dc0b8], .reply[data-v-5a191921] {
-    border-style: solid;
-    border-width: thin;
-    border-radius: 20px;
-    border-color: rgba(0, 0, 0, 0.5);
+a[href="/user/Canetoadz/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after { content: 'Son'; }
 
-    overflow: visible;
+
+/*
+a[href="/user/Ayir/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after { content: 'Harem Trap'; }
+a[href="/user/bubblegumm/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after { content: 'Wifey'; }
+a[href="/user/ciyah/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after { content: 'Harem Girl'; }
+a[href="/user/Elaine/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after { content: 'Harem Girl'; }
+a[href="/user/itsaisha/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after { content: 'Harem Girl'; }
+a[href="/user/leilana/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after { content: 'Harem Girl'; }
+a[href="/user/nekodaph/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after { content: 'Harem Girl'; }
+a[href="/user/Yujinie/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after { content: 'Harem Girl'; }
+a[href="/user/Hyperixn/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after { content: 'Harem Leader'; }
+a[href="/user/SkylarSays/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after { content: 'Main Simp'; }
+*/
+
+
+/*  -----------------------------| ALTERNATIVE STATS || BASE: SIGMA |----------------------------------- */
+
+.section > .stats-wrap > .list-stats {
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 25px !important;
+  border-color: rgba(0, 0, 0, 0);
 }
 
-/* Activities [Main + BugFix] and Activity Comments [Main + BugFix] on hover - Change colour / highlight and check for overflow */
-.wrap[data-v-6c3dc0b8]:hover, .reply[data-v-5a191921]:hover{
-    border-color: rgba(160, 0, 155, 0.5);
-
-    overflow: visible;
+.section > .stats-wrap > .list-stats > .footer {
+  width: 0;
+  height: 0;
 }
 
-/* Load More button - Add rounded border, Change font, Change Font Colour and Change button size */
-.load-more[data-v-6f203cf2]{
-    border-style: solid;
-    border-width: thin;
-    border-radius: 20px;
-    border-color: rgb(160, 0, 255);
-
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 2rem;
-    color: rgb(160, 0, 255);
-    margin:auto;
-    max-width: 1000px;
+.section > .stats-wrap > .list-stats > .stats-wrap {
+  display: grid;
+  grid-auto-flow: row;
+  grid-row-gap: 10px;
+  grid-template-columns: auto auto;
+  padding: 20px 40px;
+  text-align: left;
 }
 
-/*  -----------------------------| PROFILE | FAVOURITES |----------------------------------- */
-
-/* About section - Add rounded border */
-.user .about > .content-wrap[data-v-5c30286e] {
-    border-style: solid;
-    border-width: thin;
-    border-radius: 20px;
-    border-color: rgba(0, 0, 0, 0.5);
+.section > .stats-wrap > .list-stats > .stats-wrap .stat:nth-child(1) {
+  grid-row-start: span 2;
 }
 
-/* About section on hover - Change colour / highlight and set scrollbar colours */
-.user .about > .content-wrap[data-v-5c30286e]:hover {
-    border-color: rgba(160, 0, 255, 0.5);
+.section > .stats-wrap > .list-stats > .stats-wrap .stat:nth-child(1) .value {
+  font-size: 5.5rem;
+}
 
+.section > .stats-wrap > .list-stats > .stats-wrap .stat .value {
+  font-size: 2rem;
+  padding-bottom: 0px;
+}
+
+.section > .stats-wrap > .list-stats > .stats-wrap .stat .label {
+  font-size: 1.2rem;
+}
+
+.section
+  > .stats-wrap
+  > .list-stats:nth-child(1)
+  .stat:nth-child(1)
+  .label:before {
+  content: "";
+  mask: url(https://criolaservice.by/AL-css/svg/tv.svg) no-repeat 50% 50%;
+  -webkit-mask: url(https://criolaservice.by/AL-css/svg/tv.svg) no-repeat 50%
+    50%;
+  mask-size: cover;
+  -webkit-mask-size: cover;
+  width: 19px;
+  height: 16px;
+  margin-right: 5px;
+  background-color: rgba(var(--color-text-light));
+}
+
+.section > .stats-wrap > .list-stats:nth-child(2) .stat:nth-child(1) .label,
+.section > .stats-wrap > .list-stats:nth-child(1) .stat:nth-child(1) .label {
+  display: flex;
+  align-items: center;
+  color: rgb(var(--color-text-light));
+}
+
+.section
+  > .stats-wrap
+  > .list-stats:nth-child(2)
+  .stat:nth-child(1)
+  .label:before {
+  content: "";
+  mask: url(https://criolaservice.by/AL-css/svg/book.svg) no-repeat 50% 50%;
+  -webkit-mask: url(https://criolaservice.by/AL-css/svg/book.svg) no-repeat 50%
+    50%;
+  mask-size: cover;
+  -webkit-mask-size: cover;
+  width: 13px;
+  height: 16px;
+  margin-right: 5px;
+  background-color: rgba(var(--color-text-light));
+}
+
+/*  -----------------------------| PROFILE | ACTIVITIES || BASE: SIGMA |----------------------------------- */
+
+.user .about > div.content-wrap, .activity-history, .favourite {
+    border-radius: 25px !important;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(160, 0, 255) rgba(30, 35, 45, 0.2);
+    max-height: 3000px;
+}
+
+.wrap, .reply {
+    border-radius: 25px !important;
     scrollbar-width: thin;
     scrollbar-color: rgb(160, 0, 255) rgba(30, 35, 45, 0.2);
 }
 
-/* Activity history section - Add rounded border */
-.desktop > .activity-history[data-v-514856af] {
-    border-style: solid;
-    border-width: thin;
-    border-radius: 20px;
-    border-color: rgba(0, 0, 0, 0.5);
+.activity-feed-wrap > .section-header::before {
+    content: "Give"
 }
 
-/* Activity history section on hover - Change colour / highlight */
-.desktop > .activity-history[data-v-514856af]:hover {
-    border-color: rgba(160, 0, 255, 0.5);
+.activity-feed-wrap > .section-header::after {
+    content: "Or Something I guess"
 }
+
+
+/*.activity-entry > .wrap, .reply {
+    box-shadow: 0px 0px 10px 3px rgb(var(--color-foreground));
+}*/
 
 
 /* Hide Genre Overview section */
 .desktop:nth-of-type(3) {
-  height: 0;
-  visibility: hidden;
+    height: 0;
+    visibility: hidden;
 }
 
-
-/* (If visible) Genre overview section - Add rounded border */
-.desktop > .genre-overview[data-v-aedb6876] {
+.activity-entry > .wrap > .text .avatar {
     border-style: solid;
     border-width: thin;
     border-radius: 20px;
-    border-color: rgba(160, 0, 255, 0.5);
+    border-color: rgba(0, 0, 0, 1);
+    transition: transform .8s;
 }
 
-/* (If visible) Genre overview section on hover - Change colour / highlight */
-.desktop > .genre-overview[data-v-aedb6876]:hover {
+.activity-entry > .wrap > .text .avatar:hover  {
     border-color: rgba(160, 0, 255, 0.5);
+    transform: scale(1.1);
 }
 
+.load-more {
+    font-family: 'Verdana', sans-serif;
+    font-size: 2rem;
+    color: rgba(160, 0, 255, 0.5);
+    margin:auto;
+    max-width: 200px;
+}
 
-/* Favourites section - Add rounded border */
-.favourite[data-v-1496db1c] {
+.load-more:hover {
+    color: rgba(160, 0, 255, 1);
+}
+
+p {
+    margin: 10px;
+}
+
+.desktop > .section-header, .section-header, .list-wrap > .section-name {
+    font-family: 'Satisfy', serif;
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: rgba(var(--color-blue), 1);
+    text-decoration: underline;
+}
+
+.filters > .filter-group, .stats > .filters > .filter-wrap, .medialist > .lists {
     border-style: solid;
-    border-width: thin;
-    border-radius: 20px;
-    border-color: rgba(160, 0, 255, 0.5);
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: rgba(0, 0, 0, 0);
+    background-color: rgb(var(--color-foreground));
+
+    color: rgba(var(--color-blue), 1);
 }
 
-/* Favourites section [BugFix] */
-.favourites-wrap[data-v-1496db1c]{
-    overflow: visible;
+/*  -----------------------------| EXTRAS | BUG-FIXES || BASE: KURISU |-------------------------------------- */
+
+.markdown img {
+    border-radius: 0px;
 }
 
-/*  -----------------------------| EXTRAS | BUG-FIXES |-------------------------------------- */
-
-/* Horizontal rule border settings */
 .markdown hr {
     border: solid 1px rgb(160, 0, 255);
     border-radius: 1px;
 }
 
-/* Blockquotes centered */
 .markdown blockquote {
     margin-right: auto;
 }
 
-/* Hides hoh download button (Sorry HoH) */
 .hohDownload {
     display: none;
 }
 
-/*  ------------------------------| BROWSER: CHROME |--------------------------------------- */
-
-/* Chrome scrollbar - Background colour */
-::-webkit-scrollbar {
-    width: 6px;
-    background: rgba(30, 35, 45, 0)
-}
-
-/* Chrome scrollbar - Edges of background colour */
-::-webkit-scrollbar-corner {
-    background: rgba(30, 35, 45, 0)
-}
-
-/* Chrome scrollbar - Thumb colour and size / width (thing that goes up and down when you scroll) */
-::-webkit-scrollbar-thumb {
-    background: #a000ff;
-    -webkit-border-radius: 1ex;
-}
-
-/*  ------------------------------| BROWSER: FIREFOX |--------------------------------------- */
-
-/* Changes scrollbar for whole page (Firefox) */
-html {
-    scrollbar-width: thin;
-    scrollbar-color: rgb(160, 0, 255) rgba(30, 35, 45, 0);
-}
-
-/*  ------------------------------| THEME COLOUR FIXES |--------------------------------------- */
-
-/* Site background - Adds site wide (dark theme) transparency */
 .site-theme-dark{
-    --color-foreground: 16,24,35, 0.9;
+ --color-foreground: 16, 24, 35, .80;
 }
 
-/* Top navbar - Changes to transparent background */
-.site-theme-dark .nav-unscoped.transparent {
-    background: rgb(var(--color-foreground), 0.2);
-}
+/*  ---------------------------------| SHORT NAV BAR || BASE: KURISU + SIGMA |----------------------------------------- */
 
-/* Top navbar on hover - Change colour / highlights */
-.site-theme-dark .nav-unscoped.transparent:hover {
-    background: rgb(16, 24, 35, 0.2);
-}
-
-/* Top navbar - More changes to transparency */
-.site-theme-dark .nav-unscoped {
-    background: rgb(var(--color-foreground), 0.2);
-}
-
-/* Top navbar on hover - More changes to transparency */
-.site-theme-dark .nav-unscoped:hover {
-    background: rgb(16, 24, 35, 0.2);
-}
-
-/*  ---------------------------------| SHORT NAV BAR |----------------------------------------- */
-
-/* Profile nav bar - Short nav bar, Added rounded border */
-.nav-wrap[data-v-5445dac8] {
+.header-wrap > .nav-wrap {
     background: rgb(var(--color-foreground));
     border-style: solid;
-    border-width: thin;
-    border-color: rgba(0, 0, 0, 0.5);
+    border-width: 2px;
+    border-color: rgba(0, 0, 0, 0);
 
     width: 75%;
     margin: 0 auto;
+    padding: 0px;
+    transform: translate(0px, 1px);
+
     border-radius: 30px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
 }
 
-/* Profile nav bar on hover - Changes colour / highlights */
-.nav-wrap[data-v-5445dac8]:hover {
-    border-color: rgba(160, 0, 255, 0.5);
-}
+/*  ---------------------------------| ALIGNMENT FIXES || BASE: SIGMA |------------------------------------------ */
 
-/* Profile nav bar - Adds padding (Might be moved to section above) */
-.nav[data-v-5445dac8] {
-    padding: 0px;
-}
-
-/*  ---------------------------------| ALIGNMENT FIXES |------------------------------------------ */
-
-/* Re-aligns Banner PFP and Name. Part of short navbar */
-.banner .container[data-v-5445dac8] {
+.banner .container {
     max-width: 70%;
 }
 
-/* Re-aligns main container. Part of shorter navbar */
 .content.container {
     max-width: 75%;
     padding: 1%;
     padding-top: 0.5%;
 }
 
-/* Re-aligns profile and overviews. Re-aligns activities and activity replies. Part of shorter navbar */
-.activity-feed-wrap[data-v-09492909], .stats-wrap[data-v-5c30286e] {
+.activity-feed-wrap, .stats-wrap {
     padding-left: 5%;
     max-width: 100%
+}
+
+.medialist > .lists {
+   padding-left: 50px;
+   padding-right: 50px;
+}
+
+.medialist > .lists > .actions {
+   transform: translate(-50px, 25px);
+}
+
+.favourites > .section-header {
+  padding-left: 12px;
+  align-items: center;
+}
+
+/*  ------------------------------| BROWSER: CHROME || BASE: KURISU |--------------------------------------- */
+
+::-webkit-scrollbar {
+    display: none;
+    width: 6px;
+    background: rgba(30, 35, 45, 0)
+}
+
+::-webkit-scrollbar-corner {
+    background: rgba(30, 35, 45, 0)
+}
+
+::-webkit-scrollbar-thumb {
+    background: #a000ff;
+    -webkit-border-radius: 1ex;
+}
+
+/*  ------------------------------| BROWSER: FIREFOX || BASE: KURISU |--------------------------------------- */
+
+html {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(160, 0, 255) rgba(30, 35, 45, 0);
 }
