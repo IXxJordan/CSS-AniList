@@ -1,82 +1,5 @@
-/* Anilist.co Custom CSS
-## - Name:        hyperixn-style.css
-## - Author:      @Hyperixn
-## - Last Update: 2021/04/10
-
-
-::Changelog::
-2021/04/10:
-- Re-factored code
-- Fixed .wrap code -> Added DATA-v again (need to remove)
-
-
-2021/04/08:
-- Fixed Activities after update
-- Fixed Replies after update
-- Fixed Bio after update
-
-
-2021/04/07:
-- initial release 
-
-- Fixed any remaining small bugs
-- Fixed small alignment issues
-- Commented remaining code
-- Re-factored some code using [data]
-
-
-2021/04/06:
-- Added Blur 2.0
-- Added on hover highlight border to Blur container
-- Added on hover highlight border to Bio
-- Added on hover highlight border to Activity History
-- Added on hover highlight border to Favourites
-- Added on hover highlight border to Activities
-- Added on hover highlight border to Activity Replies
-- Added on hover highlight border to Profile nav bar
-- Added on hover highlight border to Banner Name
-- Added on hover highlight border to Banner Avatar
-- Changed alignment sizes for main container
-- Changed alignment sizes for bio/overview container
-- Changed alignment sizes for activity container
-- Changed alignment sizes for main container
-- Removed Genre Overview
-
-
-2021/04/05:
-- Added Blur 1.0
-- Added shorter navigation bar
-- Added rounded border to profile nav bar
-- Added rounded border to Load More button
-- Removed focus avatars
-- Re-vamped the colour scheme
-
-
-2021/03/04
-- Added rounded border to anime and manga activities
-- Added focus avatars in activities
-- Changed Chrome scrollbar
-- Changed Firefox scrollbar
-- Removed hoh download button
-
-
-2021/04/03
-- Added focus bio
-- Added rounded borders to activities
-- Added rounded borders to activity replies
-- Added rounded borders to bio
-- Added rounded borders to favourites
-- Added several bugfixes
-- Changed colour of bio scrollbar
-
-
-2021/04/02
-- Added base css:
-- Added transparent banner
-- Added focus activities
-- Added focus avatars in activities
-- Added focus favourites
-*/
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+@import url("https://github.com/animate-css/animate.css/blob/main/source/");
 
 /* 
     ============================
@@ -248,7 +171,7 @@ This CSS is a laboratory smash together from multiple CSS src's, changed and edi
 /*  --------------------------------------------| BACKGROUND || BASE: SIGMA  |----------------------------------------------- */
 
 #app {
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: rgba(0, 0, 0, 0.275);
     top: 0;
     left: 0;
     width: 100%;
@@ -258,7 +181,7 @@ This CSS is a laboratory smash together from multiple CSS src's, changed and edi
 body {
     cursor: url(https://i.imgur.com/YFvThDh.png), auto;
     background-color: rgba(var(--color-background));
-    background: url("https://wallpapercave.com/wp/wp5758189.jpg");
+    background: url("https://cdn.wallpapersafari.com/33/24/EOnICi.jpg");
 
     background-position: center / 100%;
     background-repeat: no-repeat;
@@ -267,17 +190,32 @@ body {
 }
 
 /*  -----------------------------------------| HEADER NAV BAR || BASE: ANZU |-------------------------------------------- */
+ #nav {
+    background-color: rgba(255, 255, 255, 0) !important;
+    display: flex;
+    height: 50px !important;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    top: 0;
+    transition: background .8s ease,color .2s;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 100%;
+  }
 
-#nav {
-    background: rgb(var(--color-foreground)) !important;
-    color: rgb(var(--color-text-light)) !important;
-    border-radius: var(--hokaze-nbr);
-    left: var(--hokaze-nbl);
-    width: var(--hokaze-nl);
-    box-shadow: var(--hokaze-bs);
+.nav > .wrap {
+    max-width:80%;
+    position: relative;
+    margin: 1vw;
+    background-color: rgba(0, 0, 0, 0.45) !important;
+    box-shadow: 0 10px 20px rgb(0 0 0 / 50%);
+    border-radius: 15px;
+    transition: transform 0s ease-in-out;
 }
 
-.hide, .nav.nav-unscoped {
+.nav.nav-unscoped {
     top: -60px !important;
 }
 
@@ -285,29 +223,36 @@ body {
     top: 0px !important;
 }
 
-.links > .link:hover {
-    color: rgba(240, 60, 155, 1);
+.links > .link:hover, .links > .browse-wrap:hover, .links > .browse-wrap > .link:hover {
+    color: rgba(var(--color-blue), 1);
 }
 
 #app > .progress {
-    background-color: rgb(var(--color-blue));
+   // background-color: rgb(var(--color-blue));
 }
 
 .logo > img {
     content: url("https://cdn.countryflags.com/thumbs/scotland/flag-heart-3d-250.png");
-    border-radius: var(--hokaze-lr);
-    border: var(--hokaze-lob);
-    transition: var(--hokaze-vt);
+    height: 40px;
+    width: 40px;
 }
 
-.logo > img:hover {
-    transform: scale(var(--hokaze-ls));
+.search {
+    margin-right: 50px !important;
 }
+
+#nav > div.wrap > div.user {
+    left: -30px;
+}
+
 
 /*  -----------------------------------------| BANNER || BASE: ANZU |-------------------------------------------- */
 .content.container {
-    padding-top: -25px;
-    backdrop-filter: blur(15px);
+    background: rgba(var(--color-foreground-grey), 0.35);
+    max-width: 75%;
+    padding: 30px;
+    border-radius: 0 0 30px 30px;
+    box-shadow: var(--hokaze-bs);
 }
 
 .banner {
@@ -324,7 +269,7 @@ body {
 .container > .banner-content {
     width: 0;
     height: var(--hokaze-bch);
-    margin-left: -900px;
+    margin-left: -650px;
     margin-bottom: -10px;
 
     align-items: center;
@@ -332,9 +277,10 @@ body {
 }
 
 .banner-content > .avatar {
+    position: relative;
     width: 0;
     height: 0;
-    padding: var(--hokaze-as);
+    padding: 100px;
     background: var(--hokaze-av);
     background-size: var(--hokaze-ai);
     background-repeat: no-repeat;
@@ -344,8 +290,8 @@ body {
     box-shadow: var(--hokaze-bs);
 
     transform: rotate(-5deg);
-    animation: fadeInDownBig, swing;
-    animation-duration: 2s, 20s;
+    animation: fadeInDownBig;
+    animation-duration: 3s, 20s;
     animation-iteration-count: 1, infinite;
 
     transition: var(--hokaze-at);
@@ -436,21 +382,40 @@ body {
     opacity: 1;
 }
 
-.header-wrap .nav-wrap .nav .link {
-  margin: 0 30px;
-  font-size: 1.7rem;
-  border-bottom: 2px solid rgba(0, 0, 0, 0);
-  transition: 0.5s;
+.header-wrap > .nav-wrap {
+    max-width: 80%;
+    margin: 0 auto;
+    border-radius: 30px 30px 0 0;
+    box-shadow: var(--bays-ns);
+    position: relative;
+}
+  
+.nav > .link {
+    position: relative;
 }
 
-.header-wrap .nav-wrap .nav .link:hover {
-  border-bottom: 2px solid rgba(var(--color-blue), 0.35);
-  transition: 0.2s;
+.nav > .link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    height: 2px;
+    width: 0;
+    background: rgb(var(--color-blue));
+    transition: all 0.3s ease-in-out;
 }
 
-.header-wrap .nav-wrap .nav .link.router-link-active {
-  border-bottom: 3px solid rgba(var(--color-blue), 1);
+.nav > .link:hover::after {
+    left: 0;
+    width: 100%;
+    background: rgb(var(--color-blue));
 }
+
+.nav > .router-link-active::after {
+    left: 0;
+    width: 100%;
+    background: rgb(var(--color-blue-dim));
+  }
 
 .header-wrap .nav-wrap .nav .link:nth-child(7),
 .header-wrap .nav-wrap .nav .link:nth-child(8) {
@@ -459,44 +424,6 @@ body {
   padding: 0;
   visibility: hidden;
 }
-
-/*  ---------------------------------| NAME TAGS || BASE: SKYLARSAYS (UNKNOWN ORIGINNAL) |--------------------------------------- */
-.text > .header > .name::after, .reply > .header > .name::after {
-  /*content: 'Cutie';*/
-  position: relative;
-  top: -1px;
-  left: 4px;
-
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 20px !important;
-  border-color: rgba(0, 0, 0, 1);
-  background-color: rgba(160, 35, 255, 0.15);
-
-  padding: 5px 8px;
-  margin-bottom: 20px;
-  margin-right: 16px;
-
-  font-size: 1.15rem;
-}
-
-
-a[href="/user/Canetoadz/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after { content: 'Son'; }
-
-
-/*
-a[href="/user/Ayir/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after { content: 'Harem Trap'; }
-a[href="/user/bubblegumm/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after { content: 'Wifey'; }
-a[href="/user/ciyah/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after { content: 'Harem Girl'; }
-a[href="/user/Elaine/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after { content: 'Harem Girl'; }
-a[href="/user/itsaisha/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after { content: 'Harem Girl'; }
-a[href="/user/leilana/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after { content: 'Harem Girl'; }
-a[href="/user/nekodaph/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after { content: 'Harem Girl'; }
-a[href="/user/Yujinie/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after { content: 'Harem Girl'; }
-a[href="/user/Hyperixn/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after { content: 'Harem Leader'; }
-a[href="/user/SkylarSays/"]:not(.avatar):not(.user):not(.link):not(.primary-link)::after { content: 'Main Simp'; }
-*/
-
 
 /*  -----------------------------| ALTERNATIVE STATS || BASE: SIGMA |----------------------------------- */
 
@@ -527,6 +454,8 @@ a[href="/user/SkylarSays/"]:not(.avatar):not(.user):not(.link):not(.primary-link
 
 .section > .stats-wrap > .list-stats > .stats-wrap .stat:nth-child(1) .value {
   font-size: 5.5rem;
+text-align: center;
+    transform: translateX(-27.5px);
 }
 
 .section > .stats-wrap > .list-stats > .stats-wrap .stat .value {
@@ -585,28 +514,27 @@ a[href="/user/SkylarSays/"]:not(.avatar):not(.user):not(.link):not(.primary-link
     border-radius: 25px !important;
     scrollbar-width: thin;
     scrollbar-color: rgb(160, 0, 255) rgba(30, 35, 45, 0.2);
-    max-height: 3000px;
+    max-height: none;
 }
 
-.wrap, .reply {
-    border-radius: 25px !important;
+.activity-entry > .wrap, .reply {
+    border-left-width: 5px;
+    border-left-style: solid;
+    border-color:  rgba(var(--color-blue), 0.65);
+
+    border-radius: 20px !important;
     scrollbar-width: thin;
     scrollbar-color: rgb(160, 0, 255) rgba(30, 35, 45, 0.2);
+
+    transition: transform 1s ease-in-out;
+    transform: scale(1);
 }
 
-.activity-feed-wrap > .section-header::before {
-    content: "Give"
+.activity-entry > .wrap:hover, .reply:hover {
+    border-color:  rgba(0, 255, 255, 0.75);
+    transition: transform 1s ease-in-out;
+    transform: scale(1.025);
 }
-
-.activity-feed-wrap > .section-header::after {
-    content: "Or Something I guess"
-}
-
-
-/*.activity-entry > .wrap, .reply {
-    box-shadow: 0px 0px 10px 3px rgb(var(--color-foreground));
-}*/
-
 
 /* Hide Genre Overview section */
 .desktop:nth-of-type(3) {
@@ -614,33 +542,66 @@ a[href="/user/SkylarSays/"]:not(.avatar):not(.user):not(.link):not(.primary-link
     visibility: hidden;
 }
 
+.text > .header {
+    display: flex;
+    align-items: center;
+}
+
 .activity-entry > .wrap > .text .avatar {
     border-style: solid;
     border-width: thin;
     border-radius: 20px;
-    border-color: rgba(0, 0, 0, 1);
-    transition: transform .8s;
+    border-color: rgba(var(--color-blue), 1);
+    transform: scale(1.1);
 }
 
-.activity-entry > .wrap > .text .avatar:hover  {
-    border-color: rgba(160, 0, 255, 0.5);
-    transform: scale(1.1);
+.text .header > .name {
+    padding-top: 5px;
+    line-height: 15px;
+}
+ 
+.text > .header > .donator-badge {
+    top: -8px;
+    left: -8px;
+}
+
+.activity-message > .wrap > .time, .activity-text > .wrap > .time {
+    left: 77px;
+    top: 42px;
+    font-weight: 300;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.activity-entry .wrap > .text {
+    margin: 0px 5px 5px 5px;
+}
+
+.activity-message .wrap > .text > .activity-markdown, .activity-text .wrap > .text > .activity-markdown  {
+    border-radius: 0 !important;
+    border-bottom: 1px solid rgba(var(--color-text), 0.1);
+}
+
+.activity-message .wrap > .actions, .activity-text .wrap > .actions, .activity-text .wrap > .actions, .activity-text .wrap > .actions{
+    right: 0;
+    bottom: 0;
+    position: relative;
+    margin: -20px 0px 5px 25px;
+    font-size: 1.3rem;
 }
 
 .load-more {
     font-family: 'Verdana', sans-serif;
-    font-size: 2rem;
-    color: rgba(160, 0, 255, 0.5);
+    font-size: 8rem;
+    color: rgba(var(--color-blue), 0.45);
     margin:auto;
     max-width: 200px;
 }
 
 .load-more:hover {
-    color: rgba(160, 0, 255, 1);
-}
-
-p {
-    margin: 10px;
+    color: rgba(var(--color-blue), 1);
 }
 
 .desktop > .section-header, .section-header, .list-wrap > .section-name {
@@ -651,20 +612,19 @@ p {
     text-decoration: underline;
 }
 
-.filters > .filter-group, .stats > .filters > .filter-wrap, .medialist > .lists {
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 10px;
-    border-color: rgba(0, 0, 0, 0);
-    background-color: rgb(var(--color-foreground));
-
-    color: rgba(var(--color-blue), 1);
+.section-header > .el-dropdown, .filters .filter-group > .active, .stats > .filters > .filter-wrap, .medialist > .lists {
+    color: rgb(var(--color-blue));
 }
+
+.filters .filter-group > span:hover {
+    color: rgb(var(--color-blue));
+}
+
 
 /*  -----------------------------| EXTRAS | BUG-FIXES || BASE: KURISU |-------------------------------------- */
 
-.markdown img {
-    border-radius: 0px;
+.activity-markdown img {
+    border-radius: 30px;
 }
 
 .markdown hr {
@@ -680,8 +640,8 @@ p {
     display: none;
 }
 
-.site-theme-dark{
- --color-foreground: 16, 24, 35, .80;
+.site-theme-dark {
+    --color-foreground: 0, 0, 0, .50;
 }
 
 /*  ---------------------------------| SHORT NAV BAR || BASE: KURISU + SIGMA |----------------------------------------- */
@@ -695,24 +655,15 @@ p {
     width: 75%;
     margin: 0 auto;
     padding: 0px;
-    transform: translate(0px, 1px);
+    border-radius: 30px 30px 0px 0px;
+    position: relative;
+}
 
-    border-radius: 30px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
+.header-wrap > .nav-wrap {
+   color: rgb(255,255,255);
 }
 
 /*  ---------------------------------| ALIGNMENT FIXES || BASE: SIGMA |------------------------------------------ */
-
-.banner .container {
-    max-width: 70%;
-}
-
-.content.container {
-    max-width: 75%;
-    padding: 1%;
-    padding-top: 0.5%;
-}
 
 .activity-feed-wrap, .stats-wrap {
     padding-left: 5%;
