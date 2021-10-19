@@ -1,3 +1,95 @@
+/* Anilist.co Custom CSS
+## - Name:        hyperixn-style.css
+## - Author:      @Hyperixn
+## - Last Update: 2021/10/17
+
+
+::Changelog::
+2021/10/17:
+- Removed Blur
+- Change transparancy of main container
+- Added scaling to activities
+- Added border under activity content
+- Swapped likes and replies to left side
+- Swapped activity post time to left side
+- Re-aligned activity name and time 
+- Re-aligned actions / like button and activity content
+- Copied changes to activity across to activity replies
+
+
+2021/04/10:
+- Re-factored code
+- Fixed .wrap code -> Added DATA-v again (need to remove)
+
+
+2021/04/08:
+- Fixed Activities after update
+- Fixed Replies after update
+- Fixed Bio after update
+
+
+2021/04/07:
+- initial release 
+
+- Fixed any remaining small bugs
+- Fixed small alignment issues
+- Commented remaining code
+- Re-factored some code using [data]
+
+
+2021/04/06:
+- Added Blur 2.0
+- Added on hover highlight border to Blur container
+- Added on hover highlight border to Bio
+- Added on hover highlight border to Activity History
+- Added on hover highlight border to Favourites
+- Added on hover highlight border to Activities
+- Added on hover highlight border to Activity Replies
+- Added on hover highlight border to Profile nav bar
+- Added on hover highlight border to Banner Name
+- Added on hover highlight border to Banner Avatar
+- Changed alignment sizes for main container
+- Changed alignment sizes for bio/overview container
+- Changed alignment sizes for activity container
+- Changed alignment sizes for main container
+- Removed Genre Overview
+
+
+2021/04/05:
+- Added Blur 1.0
+- Added shorter navigation bar
+- Added rounded border to profile nav bar
+- Added rounded border to Load More button
+- Removed focus avatars
+- Re-vamped the colour scheme
+
+
+2021/03/04
+- Added rounded border to anime and manga activities
+- Added focus avatars in activities
+- Changed Chrome scrollbar
+- Changed Firefox scrollbar
+- Removed hoh download button
+
+
+2021/04/03
+- Added focus bio
+- Added rounded borders to activities
+- Added rounded borders to activity replies
+- Added rounded borders to bio
+- Added rounded borders to favourites
+- Added several bugfixes
+- Changed colour of bio scrollbar
+
+
+2021/04/02
+- Added base css:
+- Added transparent banner
+- Added focus activities
+- Added focus avatars in activities
+- Added focus favourites
+*/
+
 @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 @import url("https://github.com/animate-css/animate.css/blob/main/source/");
 
