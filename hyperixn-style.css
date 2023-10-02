@@ -1,124 +1,24 @@
-/* Anilist.co Custom CSS
-## - Name:        hyperixn-style.css
-## - Author:      @Hyperixn
-## - Last Update: 2021/10/17
-
-
-::Changelog::
-2021/10/17:
-- Removed Blur
-- Change transparancy of main container
-- Added scaling to activities
-- Added border under activity content
-- Swapped likes and replies to left side
-- Swapped activity post time to left side
-- Re-aligned activity name and time 
-- Re-aligned actions / like button and activity content
-- Copied changes to activity across to activity replies
-
-
-2021/04/10:
-- Re-factored code
-- Fixed .wrap code -> Added DATA-v again (need to remove)
-
-
-2021/04/08:
-- Fixed Activities after update
-- Fixed Replies after update
-- Fixed Bio after update
-
-
-2021/04/07:
-- initial release 
-
-- Fixed any remaining small bugs
-- Fixed small alignment issues
-- Commented remaining code
-- Re-factored some code using [data]
-
-
-2021/04/06:
-- Added Blur 2.0
-- Added on hover highlight border to Blur container
-- Added on hover highlight border to Bio
-- Added on hover highlight border to Activity History
-- Added on hover highlight border to Favourites
-- Added on hover highlight border to Activities
-- Added on hover highlight border to Activity Replies
-- Added on hover highlight border to Profile nav bar
-- Added on hover highlight border to Banner Name
-- Added on hover highlight border to Banner Avatar
-- Changed alignment sizes for main container
-- Changed alignment sizes for bio/overview container
-- Changed alignment sizes for activity container
-- Changed alignment sizes for main container
-- Removed Genre Overview
-
-
-2021/04/05:
-- Added Blur 1.0
-- Added shorter navigation bar
-- Added rounded border to profile nav bar
-- Added rounded border to Load More button
-- Removed focus avatars
-- Re-vamped the colour scheme
-
-
-2021/03/04
-- Added rounded border to anime and manga activities
-- Added focus avatars in activities
-- Changed Chrome scrollbar
-- Changed Firefox scrollbar
-- Removed hoh download button
-
-
-2021/04/03
-- Added focus bio
-- Added rounded borders to activities
-- Added rounded borders to activity replies
-- Added rounded borders to bio
-- Added rounded borders to favourites
-- Added several bugfixes
-- Changed colour of bio scrollbar
-
-
-2021/04/02
-- Added base css:
-- Added transparent banner
-- Added focus activities
-- Added focus avatars in activities
-- Added focus favourites
-*/
-
-@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 @import url("https://github.com/animate-css/animate.css/blob/main/source/");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 
-/* 
-    ============================
-This CSS is a laboratory smash together from multiple CSS src's, changed and edited by myself.
+@import url("https://fonts.googleapis.com/css2?family=Satisy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
 
+/* ============================
     Code Credits [Created by]:
     * anilist.co/user/Anzu
-    * anilist.co/user/BlueTaku -> Banner Font Only
     * anilist.co/user/Megumin (Kurisu)
     * anilist.co/user/Sigma
+    * anilist.co/user/ThunderBlaze
     ============================
     Code Credits [Edited by]:
     * anilist.co/user/Hyperixn
     ============================
 */
 
-/*  --------------------------------------------| ANIMATIONS || BASE: SIGMA |----------------------------------------------- */
+/* ============================| ANIMATIONS |============================ */
 
 @charset "UTF-8";
-
-/*!
- * animate.css - https://animate.style/
- * Version - 4.1.1
- * Licensed under the MIT license - http://opensource.org/licenses/MIT
- *
- * Copyright (c) 2020 Animate.css
- */
 
 :root {
     --animate-duration: 1s;
@@ -131,7 +31,7 @@ This CSS is a laboratory smash together from multiple CSS src's, changed and edi
     40% { transform: rotate3d(0, 0, 1, -40deg); }
     60% { transform: rotate3d(0, 0, 1, 20deg); }
     80% { transform: rotate3d(0, 0, 1, -20deg); }
-    to { transform: rotate3d(0, 0, 1, 0deg) -webkit-animation-fill-mode: forwards; }
+    to { transform: rotate3d(0, 0, 1, 0deg); }
 }
 
 @keyframes hinge {
@@ -195,75 +95,53 @@ This CSS is a laboratory smash together from multiple CSS src's, changed and edi
     animation-name: swing;
 }
 
-/*  --------------------------------------------| SETTINGS || BASE: ANZU |----------------------------------------------- */
+/* ============================| SETTINGS |============================ */
 
 :root, .site-theme-dark, .site-theme-contrast {
-  /* General Settings */
-  --hokaze-br: 10px; /* Global Border Radius */
-  --hokaze-pv: 30px; /* Vertical Content Padding */
-  --hokaze-ph: 30px; /* Horizontal Content Padding */
-  --hokaze-bt: 0.3;  /* Content Background Transparency*/
-  --hokaze-nr: 30px; /* Navbar Border Radius */
-  --hokaze-nl: 80%;  /* Navbar Length */
-  --hokaze-sb: 4px;  /* Scrollbar Width */
-  --hokaze-vo: 0.7;  /* Opacity For Various Elements */
-  --hokaze-vs: 0.975;  /* Scale For Various Elements */text
-  --hokaze-vb: 2px;  /* Various Avatar Border Thickness */
-  --hokaze-sr: 4px;  /* Social Page Border Thickness */
-  --hokaze-fr: 30px; /* Footer Border Radius */
-  --hokaze-fl: 85%;  /* Footer Length */
-  --hokaze-bl: 4px;  /* Background 'Window' Blur Amount */
-  --hokaze-rs: 1.025; /* Scaling For Load More Button And Activity Input */
-  --hokaze-gs: var(--color-blue);    /* Stats Wrap Gradient Start Color */
-  --hokaze-ge: var(--color-blue-dim);    /* Stats Wrap Gradient End Color */
-  --hokaze-vt: all 0.5s ease-in-out; /* Transition For Various Elements */
-  --hokaze-li: initial; /* Anilist Logo Source */ 
-  --hokaze-lb: 0px;     /* Anilist Logo Border Thickness */
-  --hokaze-lr: 0px;     /* Anilist Logo Border Radius */
-  --hokaze-ls: 1.2;     /* Anilist Logo Hover Scaling */
-  --hokaze-bs: rgba(0, 0, 0, 0.07) 0px 1px 2px, /* Box Shadow */
-               rgba(0, 0, 0, 0.07) 0px 2px 4px,
-               rgba(0, 0, 0, 0.07) 0px 4px 8px,
-               rgba(0, 0, 0, 0.07) 0px 8px 16px;
-  --hokaze-ns: rgba(0, 0, 0, 0.07) 0px 1px 2px, /* Box Shadow For Navbar */
-               rgba(0, 0, 0, 0.07) 0px 2px 4px;
+  --0.5_ease_in_out: all 0.5s ease-in-out;
+  --1s_ease_in_out: all 1s ease-in-out;
 
-/*  --------------------------------------------| AVATAR SETTINGS || BASE: ANZU |----------------------------------------------- */
+  --al_logo_border_thickness: 0px;
+  --al_logo_border_radius: 0px;
+  --al_logo_hover_scale: 1.15;
 
-  --hokaze-as: 90px;   /* Avatar Size: One Value = Square, Two Values = Rectangle */
-  --hokaze-ap: 50% 20%; /* Inner Avatar Position */
-  --hokaze-ai: 100%; /* Avatar Size */
-  --hokaze-ab: 2px;   /* Avatar Border Thickness */
-  --hokaze-ar: 255px;  /* Avatar Border Radius */
-  --hokaze-at: all 1s ease-in-out; /* Avatar Hover Transition */
-  --hokaze-av: url("https://i.pinimg.com/originals/8e/ed/76/8eed765a370c4e79c30a8656f1fcd108.jpg");  /* Avatar Picture Link */
-  --hokaze-ah: 1.1; /* Avatar Hover Scale */
+  --global_border_radius: 10px;
+  --global_box_shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, 
+    rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px;
 
-/*  --------------------------------------| MATHS - DON'T TOUCH || BASE: ANZU |----------------------------------------- */
+/* ============================| AVATAR SETTINGS |============================ */
 
-  --hokaze-brt: var(--hokaze-br) var(--hokaze-br) 0 0;
-  --hokaze-brb: 0 0 var(--hokaze-br) var(--hokaze-br);
-  --hokaze-bra: var(--hokaze-br) var(--hokaze-br) var(--hokaze-br) var(--hokaze-br);
-  --hokaze-pdh: var(--hokaze-pv) var(--hokaze-ph);
-  --hokaze-maw: calc(1520px - 2 * ( 100px - var(--hokaze-ph)));
-  --hokaze-abs: var(--hokaze-ab) solid rgb(var(--color-foreground));
-  --hokaze-nbr: 0 0 var(--hokaze-nr) var(--hokaze-nr);
-  --hokaze-nbl: calc((100% - var(--hokaze-nl)) / 2);
-  --hokaze-fbr: var(--hokaze-fr) var(--hokaze-fr) 0 0;
-  --hokaze-fbl: calc((100% - var(--hokaze-fl)) / 2);
-  --hokaze-bch: calc(330px - 75px);
-  --hokaze-bcc: calc(var(--hokaze-bch) / 2);
-  --hokaze-bctc: calc(var(--hokaze-bcc) - 36px / 2 );
-  --hokaze-vab: var(--hokaze-vb) solid rgb(var(--color-background));  
-  --hokaze-sab: var(--hokaze-sr) solid rgb(var(--color-background));
-  --hokaze-lob: var(--hokaze-lb) solid rgb(var(--color-blue));
+  --avatar_border_thickness: 1px;
+  --avatar_border_color: var(--avatar_border_thickness) solid rgb(var(--color-foreground));
+  --avatar_border_radius: 255px;
+  --avatar_hover_scale: 1;
+  --avatar_inner_position: 50% 20%;
+  --avatar_picture: url("https://divedigital.id/wp-content/uploads/2022/07/4-Anime-Cowok-Dark-Aesthetic.jpg");
+  --avatar_size: 100%;
+  --avatar_type: 90px;   /* One Value = Square, Two Values = Rectangle */
+
+/* ============================| BANNER SETTINGS |============================ */
+
+  --banner_content_height: calc(330px - 75px);
+  --banner_content_color: calc(var(--banner_content_height) / 2);
+  --banner_content_color_final: calc(var(--banner_content_color) - 36px / 2 );
+
+/* ============================| NAV SETTINGS |============================ */
+
+  --nav_length: 60%;
+  --nav_border_left: calc((100% - var(--nav_length)) / 2);
+  --nav_border_radius: 30px;
+  --nav_box_shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px;
+  --nav_icon_filter: invert(73%) sepia(72%) saturate(362%) hue-rotate(172deg) brightness(105%) contrast(101%);
+  --nav_link_filter: invert(99%) sepia(96%) saturate(2%) hue-rotate(184deg) brightness(107%) contrast(100%);
+  --nav_logo_border_color: var(--al_logo_border_thickness) solid rgb(var(--color-blue));
 }
 
-/*  --------------------------------------------| M A I N-C O D E |----------------------------------------------- */
-/*  --------------------------------------------| BACKGROUND || BASE: SIGMA  |----------------------------------------------- */
+/* ============================| MAIN-CODE |============================ */
+/* ============================| BACKGROUND |============================ */
 
 #app {
-    background-color: rgba(0, 0, 0, 0.275);
+    background-color: rgba(0, 0, 0, 0.6);
     top: 0;
     left: 0;
     width: 100%;
@@ -271,82 +149,256 @@ This CSS is a laboratory smash together from multiple CSS src's, changed and edi
 }
 
 body {
-    cursor: url(https://i.imgur.com/YFvThDh.png), auto;
-    background-color: rgba(var(--color-background));
-    background: url("https://cdn.wallpapersafari.com/33/24/EOnICi.jpg");
+    cursor: url(https://i.imgur.com/zCw7Qel.png), auto;
 
-    background-position: center / 100%;
+    background: rgb(var(--color-background)) url("https://i.imgur.com/Mwaw5zu.png") center/100% fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;
 }
 
-/*  -----------------------------------------| HEADER NAV BAR || BASE: ANZU |-------------------------------------------- */
- #nav {
-    background-color: rgba(255, 255, 255, 0) !important;
-    display: flex;
-    height: 50px !important;
-    justify-content: center;
-    left: 0;
+/* Hide scrollbar */
+::-webkit-scrollbar { 
+    display: none;  /* Chrome, Safari and Opera */
+}
+
+html {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* ============================| HEADER NAV BAR |============================ */
+
+/* Customise Navbar */
+body #nav {
+    border-radius: 0 var(--global_border_radius) var(--global_border_radius) 0;
+    height: 100%;
+    max-height: 700px;
+    top: 50% !important;
+    transform: translateY(-50%);
+    width: 13px; 
+    background: rgb(var(--color-foreground));
+    box-shadow: var(--nav_box_shadow);
+    transition: width 0.3s ease-in-out !important;
+}
+
+/* Make Navbar a Grid for better display */
+body #nav .wrap {
+    align-self: center;
+    display: grid;
+    grid-template-rows: 85px auto auto 100px;
+    margin: 0;
+    max-height: 750px;
+    overflow: hidden;
+    padding: 1;
+}
+
+/* Navbar Logo Image */
+body #nav .wrap .logo img {
+/*    content: var(--nav-lg);*/
+    left: 0px;
+    width: 50px;
+    height: 50px;
+    position: relative;`
+}
+
+/* Add Anilist text after logo */
+body #nav .wrap .logo:after {
+    content: 'ANILIST';
+    position: absolute;
+    font-size: 3.0rem;
+    left: 85px;
+    font-family: "Nevis";
+    letter-spacing: 0.3Rem;
+    transition: width 0.3s ease-in-out !important;
+    visibility: hidden;
+    opacity: 0;
+    top: inherit;
+    color: #FFF;
+}
+
+/* Navbar Search */
+body #nav .wrap .search {
+    grid-row-start: 2;
+    grid-column-start: 1;
+    padding: 12px 14px;
+    background: rgb(var(--nav-link-hover));
+    border-radius: 35px;
+    margin: 0 12px 0 12px;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 45px;
+    transition: width 0.3s ease-in-out !important;
+}
+
+/* Change default search icon color */
+body #nav .wrap .search svg{ color: var(--fgca1); }
+
+/* Add search Anilist text in search box */
+body #nav .wrap .search:after {
+    content: "Search AniList";
+    margin-left: 16px;
+    color: #FFF;
+    transition: transition: all 0.1s ease-in-out;
+}
+
+/* Move the search Anilist text on hover */
+body #nav .wrap .search:hover:after {
+    margin-left: 12px; 
+}
+
+/* Navbar Links(Home,Profile,....) */
+body #nav .wrap .links {
+    display: grid;
+    grid-row-gap: max(2.6vh,32px);
+    grid-template-rows: min(34px,4vh) min(34px,4vh) min(34px,4vh) min(36px,4vh) min(34px,4vh) min(34px,4vh);
+    justify-content:left;
+    padding: 10px;
+}
+
+/* Make the Navbar Links display correctly */
+body #nav .wrap .links > a, body #nav .wrap .links span {
+    font-family: "Nevis",sans-serif;
+    font-size: 2.4rem;
+    border-radius: var(--gbr);
+    padding: 0px 20px 0px 8px;
+    width: 260px;
+    height: 48px;
+    display: inline-grid;
+    grid-template-columns: 44px auto;
+    align-items: center;
+    column-gap: 20px;
+    white-space: nowrap;
+    color: var(--fgca1);
+    color: #FFF;
+    transition: all 0.1s ease-in-out;
+}
+
+/* Change Navbar link colors on hover */
+body #nav .wrap .links > a:hover, body #nav .wrap .links span:hover {
+    background: rgb(var(--nav-link-hover));
+    color: rgb(var(--color-blue));
+}
+
+/* Change Browse link color on hover */
+body #nav .wrap .links span > a:hover { color: rgb(var(--color-blue)); }
+
+/* Make the browse link container display correctly */
+body #nav .wrap .links span { display: inline-block; }
+
+/* Make the browse link display correctly */
+body #nav .wrap .links span > a {
+    padding: 0;
+    display: inline-grid;
+    grid-template-columns: 44px auto;
+    height: 48px;
+    align-items: center;
+    column-gap: 20px;
+}
+
+/* Add Navbar Icons */
+body #nav .wrap .links > a::before, body #nav .wrap .links > span > a::before {
+    content: '';
+    background-size: 32px;
+    width: 32px;
+    height: 32px;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: var(--nav_link_filter);
+}
+
+/* Icon Background Images */
+/* Home */
+body #nav .wrap .links > a:nth-child(1)::before{ background-image: url('https://i.imgur.com/wTvQHFy.png'); }
+
+/* Profile */
+body #nav .wrap .links > a:nth-child(2)::before{ 
+    background-size: 26px; 
+    background-image: url('https://i.imgur.com/v16GY66.png'); 
+}
+
+/* Anime list */
+body #nav .wrap .links > a:nth-child(3)::before{ background-image: url('https://i.imgur.com/NXOCS2d.png'); }
+
+/* Manga list */
+body #nav .wrap .links > a:nth-child(4)::before{ background-image: url('https://i.imgur.com/8FDvVVC.png'); }
+
+/* Browse */
+body #nav .wrap .links > span > a::before{ background-image: url('https://i.imgur.com/63znEdV.png'); }
+
+/* Forum */
+body #nav .wrap .links > a:nth-child(6)::before{ background-image: url('https://i.imgur.com/yABQ1y8.png'); }
+
+/* Change colors of icons through filter, Since I used png */
+body #nav .wrap .links > a:hover::before, body #nav .wrap .links > span:hover > a::before {
+    filter: var(--nav_icon_filter);
+}      
+
+/* Edit browse dropdown location */
+body #nav .wrap .links .browse-wrap .dropdown {
+    top: 50%;
+    margin-top: min(20px,1vh);
+    left: 250px;
     position: fixed;
-    top: 0;
-    transition: background .8s ease,color .2s;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    width: 100%;
-  }
-
-.nav > .wrap {
-    max-width:80%;
-    position: relative;
-    margin: 1vw;
-    background-color: rgba(0, 0, 0, 0.45) !important;
-    box-shadow: 0 10px 20px rgb(0 0 0 / 50%);
-    border-radius: 15px;
-    transition: transform 0s ease-in-out;
 }
 
-.nav.nav-unscoped {
-    top: -60px !important;
+/* Hide browse dropdown arrow */
+body #nav .wrap .links .browse-wrap .dropdown:before { visibility: hidden; }
+
+/* Navbar User Photo and Dropdown Arrow */
+body #nav .wrap .user {
+    justify-self: left;
+    display: grid;
+    height: 100px;
 }
 
-.nav.nav-unscoped.transparent, .nav:hover {
-    top: 0px !important;
+/* Add a border around profile photo */
+body #nav .wrap .user .user-wrap .avatar {
+    border: solid 1px rgba(var(--color-blue), 1);
+    border-radius: var(--nav_border_radius);
 }
 
-.links > .link:hover, .links > .browse-wrap:hover, .links > .browse-wrap > .link:hover {
-    color: rgba(var(--color-blue), 1);
+/* Hide profile arrow */
+body #nav .wrap .user .user-wrap .chevron { visibility: hidden; }
+
+/* Edit dropdown location */
+body #nav .wrap .user .user-wrap .dropdown {
+    left: 50px;
+    position: fixed;
 }
 
-#app > .progress {
-   // background-color: rgb(var(--color-blue));
+@media (height <= 800px) {
+    body #nav .wrap .user .user-wrap .dropdown{
+        bottom: 5px;
+        top: auto;
+    }
 }
 
-.logo > img {
-    content: url("https://cdn.countryflags.com/thumbs/scotland/flag-heart-3d-250.png");
-    height: 40px;
-    width: 40px;
+@media (height > 800px) {
+    body #nav .wrap .user .user-wrap .dropdown{
+        top: 50%;
+        margin-top: 150px;
+    }
+ }
+
+/* Hide Profile dropdown arrow */
+body #nav .wrap .user .user-wrap .dropdown:before { visibility: hidden; }
+
+/* Navbar Notification Dot */
+body #nav .wrap .user .notification-dot{ grid-row-start: 1; }
+    
+ /* Change navbar width on hover */
+body #nav:hover { width: 250px; }
+
+/* Make anilist text appear on hover */
+body #nav:hover .wrap .logo:after {
+    visibility: visible;
+    opacity: 1;
 }
 
-.search {
-    margin-right: 50px !important;
-}
+/* Make the search expand */
+body #nav:hover .wrap .search { width: calc(100% - 24px); }
 
-#nav > div.wrap > div.user {
-    left: -30px;
-}
-
-
-/*  -----------------------------------------| BANNER || BASE: ANZU |-------------------------------------------- */
-.content.container {
-    background: rgba(var(--color-foreground-grey), 0.35);
-    max-width: 75%;
-    padding: 30px;
-    border-radius: 0 0 30px 30px;
-    box-shadow: var(--hokaze-bs);
-}
-
+/* ============================| BANNER |============================ */
 .banner {
     visibility: hidden;
 }
@@ -355,77 +407,84 @@ body {
     visibility: visible;
     align-items: center;
     justify-content: center;
-    transform: translate(500px, 0px);
 }
 
 .container > .banner-content {
+    position: absolute;
+    height: var(--banner_content_height);
     width: 0;
-    height: var(--hokaze-bch);
-    margin-left: -650px;
-    margin-bottom: -10px;
-
     align-items: center;
     justify-content: center;
 }
 
 .banner-content > .avatar {
-    position: relative;
-    width: 0;
-    height: 0;
-    padding: 100px;
-    background: var(--hokaze-av);
-    background-size: var(--hokaze-ai);
+    padding: var(--avatar_type);
+    background: var(--avatar_picture);
+    background-size: var(--avatar_size);
     background-repeat: no-repeat;
-    background-position: var(--hokaze-ap);
-    border-radius: var(--hokaze-ar);
-    border: var(--hokaze-abs);
-    box-shadow: var(--hokaze-bs);
+    background-position: var(--avatar_inner_position);
+    border-radius: var(--avatar_border_radius);
+    border: var(--avatar_border_color);
+    box-shadow: var(--global_box_shadow);
 
-    transform: rotate(-5deg);
     animation: fadeInDownBig;
-    animation-duration: 3s, 20s;
-    animation-iteration-count: 1, infinite;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    position: absolute;
 
-    transition: var(--hokaze-at);
+    /* transform: rotate(-5deg);
+    animation: fadeInDownBig, swing;
+    animation-duration: 2s, 20s;
+    animation-iteration-count: 1, infinite; */
+}
+
+.banner-content > .title { display: none }
+
+.banner-content:hover > .avatar {
+    border-color: rgb(var(--color-blue));
+    transform: scale(var(--avatar_hover_scale));
+}
+
+.banner-content > .name-wrapper {
+    position: absolute;
+    transform: translateY(75px);
 }
 
 .banner-content > .name-wrapper .name {
-    font-size: 7.5rem;
+    font-size: 5.5rem;
+    color: rgb(var(--color-blue), 0.75);
+
     padding: 30px 50px 0px 10px;
     display: flex;
     align-items: center;
 
-    font-family: "Satisfy", serif;
+    font-family: "Acme", serif;
     filter: drop-shadow(0px 0px 6px black);
+    opacity: 0;
+    pointer-events: none;
 }
 
-.banner-content > .name-wrapper h1.name {
-    font-family: "Satisfy", serif;
-    filter: drop-shadow(0px 0px 6px black);
-
-    transform: translate(-50px, 0px);
-    opacity:0;
-}
-
-.banner-content > .mod-badge {
+.banner-content > .mod-badge-wrap {
     position: absolute;
-    bottom: var(--hokaze-bctc);
+    transform: translateY(-95px);
+    transition: var(--1s_ease_in_out);
+
     margin: 0;
-    padding: 11.5px 10px;
-    transition: var(--hokaze-at);
+    padding: 3px 6px;
+    white-space: nowrap;
 }
 
-.banner-content > .mod-badge:hover {
-    background: rgba(var(--color-blue),1);
+.banner-content > .mod-badge-wrap:hover {
+    background: rgba(var(--color-blue), 1);
 }
 
 .banner-content > .actions {
     position: absolute;
-    bottom: var(--hokaze-bctc);
+    transform: translate(135px, 20px);
+
+    bottom: var(--banner_content_color_final);
     margin: 0;
     padding: 0;
-
-    transform: translateX(-100px);
     opacity: 0;
 }
 
@@ -433,81 +492,54 @@ body {
     width: 100px;
     padding: 5px 5px;
 
-    transition: var(--hokaze-at);
+    transition: var(--1s_ease_in_out);
     opacity: 0;
 }
 
-.banner-content:hover > .avatar {
-    border-color: rgb(var(--color-blue));
-    transform: scale(var(--hokaze-ah));
-}
-
-.banner-content:hover > .mod-badge {
-    transform: translateX(-170px);
-}
-
 .banner-content:hover > .actions {
-    transform: translateX(185px);
     opacity: 1;
 }
 
-.banner-content:hover > .actions > .nav-btn {
-    transform: translate(10px, -10px);
+.donator-badge[data-v-1cc2919e] {
+    display: none;
+}
 
-    animation: fadeInLeft, hinge;
-    animation-duration: 2s, 8s;
+.actions > .dropdown {
+    transform: translate(-15px, 30px);
+}
+
+/* Set Animations for Name and Donator Badge  */ 
+.banner-content:hover > .actions > .nav-btn { 
+    animation: fadeInLeft ; 
+    animation-duration: 3s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-
-    transition: var(--hokaze-at);
+    transition: var(--1s_ease_in_out);
 }
 
-.banner-content:hover > .name-wrapper > .name {
-    transform: translateX(5px);
-
-    animation: fadeInLeft, hinge;
-    animation-duration: 2s, 7s;
+.banner-content:hover > .name-wrapper > .name { 
+    animation: fadeInDownBig, hinge; 
+    animation-duration: 5s, 8s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-
-    transition: var(--hokaze-at);
-    opacity: 1;
+    transition: var(--1s_ease_in_out);
 }
 
-.header-wrap > .nav-wrap {
-    max-width: 80%;
-    margin: 0 auto;
-    border-radius: 30px 30px 0 0;
-    box-shadow: var(--bays-ns);
-    position: relative;
-}
-  
-.nav > .link {
-    position: relative;
+.header-wrap .nav-wrap .nav .link {
+  margin: 0 30px;
+  font-size: 1.7rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0);
+  transition: 0.5s;
 }
 
-.nav > .link::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    height: 2px;
-    width: 0;
-    background: rgb(var(--color-blue));
-    transition: all 0.3s ease-in-out;
+.header-wrap .nav-wrap .nav .link:hover {
+  border-bottom: 2px solid rgba(var(--color-blue), 0.35);
+  transition: 0.2s;
 }
 
-.nav > .link:hover::after {
-    left: 0;
-    width: 100%;
-    background: rgb(var(--color-blue));
+.header-wrap .nav-wrap .nav .link.router-link-active {
+  border-bottom: 3px solid rgba(var(--color-blue), 1);
 }
-
-.nav > .router-link-active::after {
-    left: 0;
-    width: 100%;
-    background: rgb(var(--color-blue-dim));
-  }
 
 .header-wrap .nav-wrap .nav .link:nth-child(7),
 .header-wrap .nav-wrap .nav .link:nth-child(8) {
@@ -517,7 +549,25 @@ body {
   visibility: hidden;
 }
 
-/*  -----------------------------| ALTERNATIVE STATS || BASE: SIGMA |----------------------------------- */
+/* ============================| SHORT NAV BAR |============================ */
+
+.header-wrap > .nav-wrap {
+    background: rgb(var(--color-foreground));
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgba(0, 0, 0, 0);
+
+    width: 70%;
+    margin: 0 auto;
+    padding: 0px;
+    transform: translate(0px, 1px);
+
+    border-radius: 60px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+/* ============================| ALTERNATIVE STATS |============================ */
 
 .section > .stats-wrap > .list-stats {
   border-style: solid;
@@ -526,107 +576,77 @@ body {
   border-color: rgba(0, 0, 0, 0);
 }
 
-.section > .stats-wrap > .list-stats > .footer {
-  width: 0;
-  height: 0;
-}
-
 .section > .stats-wrap > .list-stats > .stats-wrap {
-  display: grid;
-  grid-auto-flow: row;
-  grid-row-gap: 10px;
-  grid-template-columns: auto auto;
-  padding: 20px 40px;
-  text-align: left;
-}
-
-.section > .stats-wrap > .list-stats > .stats-wrap .stat:nth-child(1) {
-  grid-row-start: span 2;
-}
-
-.section > .stats-wrap > .list-stats > .stats-wrap .stat:nth-child(1) .value {
-  font-size: 5.5rem;
-text-align: center;
-    transform: translateX(-27.5px);
+    display: grid;
+    grid-auto-flow: column;
+    grid-row-gap: 10px;
+    grid-template-columns: auto auto;
+    padding: 20px 20px;
+    text-align: center;
 }
 
 .section > .stats-wrap > .list-stats > .stats-wrap .stat .value {
-  font-size: 2rem;
+  font-size: 3rem;
+  font-weight: 700;
   padding-bottom: 0px;
 }
 
 .section > .stats-wrap > .list-stats > .stats-wrap .stat .label {
   font-size: 1.2rem;
-}
-
-.section
-  > .stats-wrap
-  > .list-stats:nth-child(1)
-  .stat:nth-child(1)
-  .label:before {
-  content: "";
-  mask: url(https://criolaservice.by/AL-css/svg/tv.svg) no-repeat 50% 50%;
-  -webkit-mask: url(https://criolaservice.by/AL-css/svg/tv.svg) no-repeat 50%
-    50%;
-  mask-size: cover;
-  -webkit-mask-size: cover;
-  width: 19px;
-  height: 16px;
-  margin-right: 5px;
-  background-color: rgba(var(--color-text-light));
-}
-
-.section > .stats-wrap > .list-stats:nth-child(2) .stat:nth-child(1) .label,
-.section > .stats-wrap > .list-stats:nth-child(1) .stat:nth-child(1) .label {
-  display: flex;
-  align-items: center;
+  font-weight: 400;
   color: rgb(var(--color-text-light));
 }
 
-.section
-  > .stats-wrap
-  > .list-stats:nth-child(2)
-  .stat:nth-child(1)
-  .label:before {
-  content: "";
-  mask: url(https://criolaservice.by/AL-css/svg/book.svg) no-repeat 50% 50%;
-  -webkit-mask: url(https://criolaservice.by/AL-css/svg/book.svg) no-repeat 50%
-    50%;
-  mask-size: cover;
-  -webkit-mask-size: cover;
-  width: 13px;
-  height: 16px;
-  margin-right: 5px;
-  background-color: rgba(var(--color-text-light));
+/*.section > .stats-wrap > .list-stats > .stats-wrap .stat:nth-child(1) {
+  grid-row-start: span 2;
+}*/
+
+.section > .stats-wrap > .list-stats:nth-child(2) .stat:nth-child(1) .label,
+.section > .stats-wrap > .list-stats:nth-child(1) .stat:nth-child(1) .label {
+  color: rgb(var(--color-text-light));
 }
 
-/*  -----------------------------| PROFILE | ACTIVITIES || BASE: SIGMA |----------------------------------- */
-
-.user .about > div.content-wrap, .activity-history, .favourite {
-    border-radius: 25px !important;
-    scrollbar-width: thin;
-    scrollbar-color: rgb(160, 0, 255) rgba(30, 35, 45, 0.2);
-    max-height: none;
+/* .section > .stats-wrap > .list-stats:nth-child(1) .stat:nth-child(1) .label:before {
+    font-family: FontAwesome;
+    content: "\f26c";
+    margin-right: 5px;
 }
 
-.activity-entry > .wrap, .reply {
-    border-left-width: 5px;
-    border-left-style: solid;
-    border-color:  rgba(var(--color-blue), 0.65);
-
-    border-radius: 20px !important;
-    scrollbar-width: thin;
-    scrollbar-color: rgb(160, 0, 255) rgba(30, 35, 45, 0.2);
-
-    transition: transform 1s ease-in-out;
-    transform: scale(1);
+.section>.stats-wrap>.list-stats:nth-child(1) .stat:nth-child(2) .label:before {
+    font-family: FontAwesome;
+    content: "\f133";
+    margin-right: 5px;
 }
 
-.activity-entry > .wrap:hover, .reply:hover {
-    border-color:  rgba(0, 255, 255, 0.75);
-    transition: transform 1s ease-in-out;
-    transform: scale(1.025);
+.section>.stats-wrap>.list-stats:nth-child(2) .stat:nth-child(1) .label:before {
+    font-family: FontAwesome;
+    content: "\f02d";
+    margin-right: 5px;
 }
+
+.section>.stats-wrap>.list-stats:nth-child(2) .stat:nth-child(2) .label:before {
+    font-family: FontAwesome;
+    content: "\f0c5";
+    margin-right: 5px;
+} */
+
+.stats-wrap > .stat:nth-child(3) {
+    display: none ;
+}
+
+.section > .stats-wrap > .list-stats > .footer {
+    width: 0;
+    height: 0;
+}
+
+/* ============================| PROFILE |============================ */
+
+.user .about > div.content-wrap, .activity-history{
+    border-radius: 15px !important;
+    max-height: 3000px;
+}
+
+.favourite { border-radius: 30px !important; }
 
 /* Hide Genre Overview section */
 .desktop:nth-of-type(3) {
@@ -634,32 +654,25 @@ text-align: center;
     visibility: hidden;
 }
 
-.text > .header {
-    display: flex;
-    align-items: center;
-}
+/* ============================| ACTIVITIES |============================ */
 
 .activity-entry > .wrap > .text .avatar {
     border-style: solid;
     border-width: thin;
     border-radius: 20px;
-    border-color: rgba(var(--color-blue), 1);
+    border-color: rgba(0, 0, 0, 0);
+    transition: transform .8s;
+}
+
+.activity-entry > .wrap > .text .avatar:hover  {
+    border-color: rgba(var(--color-foreground), 0.5);
     transform: scale(1.1);
 }
 
-.text .header > .name {
-    padding-top: 5px;
-    line-height: 15px;
-}
- 
-.text > .header > .donator-badge {
-    top: -8px;
-    left: -8px;
-}
-
-.activity-message > .wrap > .time, .activity-text > .wrap > .time {
-    left: 77px;
-    top: 42px;
+.activity-message > .wrap > .time,
+.activity-text > .wrap > .time  {
+    left: 72px;
+    top: 45px;
     font-weight: 300;
     display: flex;
     flex-direction: row-reverse;
@@ -667,98 +680,88 @@ text-align: center;
     align-items: center;
 }
 
-.activity-entry .wrap > .text {
-    margin: 0px 5px 5px 5px;
-}
-
-.activity-message .wrap > .text > .activity-markdown, .activity-text .wrap > .text > .activity-markdown  {
-    border-radius: 0 !important;
-    border-bottom: 1px solid rgba(var(--color-text), 0.1);
-}
-
-.activity-message .wrap > .actions, .activity-text .wrap > .actions, .activity-text .wrap > .actions, .activity-text .wrap > .actions{
+.activity-entry.activity-text > .wrap > .actions, 
+.activity-entry.activity-message > .wrap > .actions  {
     right: 0;
     bottom: 0;
+    font-size: 1.35rem;
     position: relative;
-    margin: -20px 0px 5px 25px;
-    font-size: 1.3rem;
+    margin: 10px 10px 10px 15px;
 }
 
-.load-more {
-    font-family: 'Verdana', sans-serif;
-    font-size: 8rem;
-    color: rgba(var(--color-blue), 0.45);
-    margin:auto;
+.activity-entry > .wrap > .text {
+    border-radius: 0 !important;
+    border-bottom: 1px solid rgba(var(--color-text), 0.1);
+    padding-bottom: 1px;
+}
+
+.wrap, .reply {
+    border-radius: 15px !important;
+}
+
+/* ============================| LOAD MORE |============================ */
+
+.scroller > .load-more {
+    font-family: 'Acme', serif;
+    font-size: 1.5rem;
+    color: rgb(var(--color-blue), 0.75);
+    margin: auto;
     max-width: 200px;
-}
-
-.load-more:hover {
-    color: rgba(var(--color-blue), 1);
+    filter: drop-shadow(0px 0px 6px black);
 }
 
 .desktop > .section-header, .section-header, .list-wrap > .section-name {
     font-family: 'Satisfy', serif;
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: bold;
+    margin-bottom: 5px;
     color: rgba(var(--color-blue), 1);
     text-decoration: underline;
 }
 
-.section-header > .el-dropdown, .filters .filter-group > .active, .stats > .filters > .filter-wrap, .medialist > .lists {
-    color: rgb(var(--color-blue));
-}
+/* ============================| ANIME / MANGA LIST TAB |============================ */
 
-.filters .filter-group > span:hover {
-    color: rgb(var(--color-blue));
-}
-
-
-/*  -----------------------------| EXTRAS | BUG-FIXES || BASE: KURISU |-------------------------------------- */
-
-.activity-markdown img {
-    border-radius: 30px;
-}
-
-.markdown hr {
-    border: solid 1px rgb(160, 0, 255);
-    border-radius: 1px;
-}
-
-.markdown blockquote {
-    margin-right: auto;
-}
-
-.hohDownload {
-    display: none;
-}
-
-.site-theme-dark {
-    --color-foreground: 0, 0, 0, .50;
-}
-
-/*  ---------------------------------| SHORT NAV BAR || BASE: KURISU + SIGMA |----------------------------------------- */
-
-.header-wrap > .nav-wrap {
-    background: rgb(var(--color-foreground));
+.filters > .filter-group, .medialist > .lists {
     border-style: solid;
     border-width: 2px;
+    border-radius: 10px;
     border-color: rgba(0, 0, 0, 0);
-
-    width: 75%;
-    margin: 0 auto;
-    padding: 0px;
-    border-radius: 30px 30px 0px 0px;
-    position: relative;
+    color: rgba(var(--color-blue), 1);
 }
 
-.header-wrap > .nav-wrap {
-   color: rgb(255,255,255);
+/* ============================| STATS TAB |============================ */
+
+.stats > .filters > .filter-wrap {
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: rgba(0, 0, 0, 0);
+    color: rgba(var(--color-blue), 1);
 }
 
-/*  ---------------------------------| ALIGNMENT FIXES || BASE: SIGMA |------------------------------------------ */
+/* ============================| ALIGNMENT FIXES |============================ */
+/* ============================| EXTRAS | BUG-FIXES |============================ */
+.pinned{ padding-left: 20px; }
+
+p { margin: 5px; }
+
+.markdown img { border-radius: 0px; }
+
+.markdown hr { border: solid 1px rgba(var(--color-blue), 1); }
+
+.markdown blockquote { margin-right: auto; }
+
+.hohColourPicker, .theme-selector > .contrast, .hohDismiss { display: none; }
+
+.site-theme-dark{ --color-foreground: 16, 24, 35, 1; }
+
+.content.container {
+    max-width: 70%;
+    padding: 0.1%;
+}
 
 .activity-feed-wrap, .stats-wrap {
-    padding-left: 5%;
+    padding: 0.5%;
     max-width: 100%
 }
 
@@ -767,35 +770,39 @@ text-align: center;
    padding-right: 50px;
 }
 
-.medialist > .lists > .actions {
-   transform: translate(-50px, 25px);
-}
+.medialist > .lists > .actions { transform: translate(-50px, 25px); }
 
 .favourites > .section-header {
   padding-left: 12px;
   align-items: center;
 }
 
-/*  ------------------------------| BROWSER: CHROME || BASE: KURISU |--------------------------------------- */
-
-::-webkit-scrollbar {
-    display: none;
-    width: 6px;
-    background: rgba(30, 35, 45, 0)
+/* ============================| HEADER NAV BAR OLD |============================ */
+/*
+#nav {
+    background: rgb(var(--color-foreground)) !important;
+    color: rgb(var(--color-text-light)) !important;
+    border-radius: 0 0 var(--br) var(--br);
+    left: var(--nav_border_left);
+    width: var(--nav_length);
+    box-shadow: var(--global_box_shadow);
 }
 
-::-webkit-scrollbar-corner {
-    background: rgba(30, 35, 45, 0)
+.hide, .nav.nav-unscoped { top: -65px !important; }
+
+.nav.nav-unscoped.transparent, .nav:hover { top: 0px !important; }
+
+.links > .link:hover { color: rgb(var(--color-blue)); }
+
+#app > .progress { background-color: rgb(var(--color-blue)); }
+
+.logo > img {
+    content: url("https://cdn.countryflags.com/thumbs/scotland/flag-heart-3d-250.png");
+    border-radius: var(--al_logo_border_radius);
+    border: var(--nav_logo_border_color);
+    transition: var(--0.5_ease_in_out);
 }
 
-::-webkit-scrollbar-thumb {
-    background: #a000ff;
-    -webkit-border-radius: 1ex;
-}
-
-/*  ------------------------------| BROWSER: FIREFOX || BASE: KURISU |--------------------------------------- */
-
-html {
-    scrollbar-width: thin;
-    scrollbar-color: rgb(160, 0, 255) rgba(30, 35, 45, 0);
-}
+.logo > img:hover {
+    transform: scale(var(--al_logo_hover_scale));
+}*/
