@@ -1,22 +1,25 @@
 @charset "UTF-8";
 
-/*
-        Original Base: Anzu -  https://anilist.co/user/Anzu/
-        Edits + Refactor: Me - https://anilist.co/user/Hyperixn/
-*/
-
 /*=============================================
-    		IMPORTS
+    Code Credits:
+    * anilist.co/user/Anzu
+    * anilist.co/user/Megumin (Kurisu)
+    * anilist.co/user/Sigma
+===============================================
+    Edited by:
+    * anilist.co/user/Hyperixn
 ==============================================*/
 
+/*=============================================
+    	  IMPORTS
+==============================================*/
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
 @import url("https://github.com/animate-css/animate.css/blob/main/source/");
 
 /*=============================================
-    		ANIMATIONS
+    	  ANIMATIONS
 ==============================================*/
-
 :root {
     --animate-duration: 1s;
     --animate-delay: 1s;
@@ -66,11 +69,9 @@
 }
 
 /*=============================================
-    		BASE SETTINGS
+    	  BASE SETTINGS
 ==============================================*/
-
 :root, .site-theme-dark, .site-theme-contrast {
-
   /* General Settings */
   --hyp-base-bradius: 10px;       /* Global Border Radius */
   --hyp-base-vpadding: 30px;      /* Vertical Content Padding */
@@ -153,9 +154,8 @@
 }
 
 /*=============================================
-			    BASE 
+			BASE / WEBSITE
 ==============================================*/
-
 #app {
     background-color: rgba(0, 0, 0, 0);
     top: 0;
@@ -179,7 +179,6 @@ body {
 /*=============================================
     		HEADER NAV (TOP)
 ==============================================*/
-
 #nav {
     background: rgb(var(--color-foreground)) !important;
     color: rgb(var(--color-text-light)) !important;
@@ -214,7 +213,6 @@ body {
 /*=============================================
     		MAIN BANNER
 ==============================================*/
-
 .content.container {
     padding-top: -25px;
 }
@@ -368,7 +366,7 @@ body {
 /*=============================================
     	  STATS (TOTAL ANIME/MANGA)
 ==============================================*/
- 
+
 .section > .stats-wrap > .list-stats {
   border-style: solid;
   border-width: 0px;
@@ -398,7 +396,6 @@ body {
 /*=============================================
     		PROFILE
 ==============================================*/
-
 .user .about > .content-wrap { max-height: none !important; } /* No-Scroll Bio */
 .user .about > .content-wrap { overflow-y: auto !important; } /* Formatting fix */
 .user .about > .content-wrap::-webkit-scrollbar { display: none !important; } /* Hide Scrollbar */
@@ -408,7 +405,6 @@ body {
 /*=============================================
     		ACTIVITY FEED
 ==============================================*/
-
 .activity-entry > .wrap > .text .avatar {
     border-style: solid;
     border-width: thin;
@@ -451,9 +447,8 @@ body {
 }
 
 /*=============================================
-    	NAV PAGES (ANIME/MANGA LIST)
+    	    NAV PAGES (ANIME/MANGA)
 ==============================================*/
-
 .desktop > .section-header, .section-header, .list-wrap > .section-name {
     font-family: 'Kanit', serif;
     font-size: 2rem;
@@ -467,9 +462,8 @@ body {
 .medialist > .lists > .actions { transform: translate(-50px, 25px); }
 
 /*=============================================
-    	SMALL NAV BAR (UNDER BANNER)
+    	    SMALL NAV BAR (UNDER BANNER)
 ==============================================*/
-
 .header-wrap > .nav-wrap {
     background: rgb(var(--color-foreground));
     border-style: solid;
@@ -491,10 +485,6 @@ body {
 .header-wrap > .nav-wrap > .nav .link:hover { font-size: 1rem; transition: font-size 0.5s ease;}
     
 .header-wrap > .nav-wrap > .nav .link:hover:before { margin-right: 8px; transition: margin-right 0.5s ease; }
-    
-/*=============================================
-    	SMALL NAV BAR ICONS
-==============================================*/
 
 .header-wrap .nav-wrap .link:nth-child(n+1):before { font-family: "FontAwesome"; font-size: 15px; }  
     
@@ -517,7 +507,6 @@ body {
 /*=============================================
     		EXTRA STUFF
 ==============================================*/
-
 .text div.markdown { scrollbar-width: none; }
 
 .reply div.markdown { scrollbar-width: none; }
