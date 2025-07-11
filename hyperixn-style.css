@@ -11,14 +11,14 @@
 ==============================================*/
 
 /*=============================================
-    	  IMPORTS
+    		IMPORTS
 ==============================================*/
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
 @import url("https://github.com/animate-css/animate.css/blob/main/source/");
 
 /*=============================================
-    	  ANIMATIONS
+    		ANIMATIONS
 ==============================================*/
 :root {
     --animate-duration: 1s;
@@ -69,7 +69,7 @@
 }
 
 /*=============================================
-    	  BASE SETTINGS
+    		BASE SETTINGS
 ==============================================*/
 :root, .site-theme-dark, .site-theme-contrast {
   /* General Settings */
@@ -154,7 +154,7 @@
 }
 
 /*=============================================
-			BASE / WEBSITE
+			    BASE 
 ==============================================*/
 #app {
     background-color: rgba(0, 0, 0, 0);
@@ -366,7 +366,6 @@ body {
 /*=============================================
     	  STATS (TOTAL ANIME/MANGA)
 ==============================================*/
-
 .section > .stats-wrap > .list-stats {
   border-style: solid;
   border-width: 0px;
@@ -447,7 +446,7 @@ body {
 }
 
 /*=============================================
-    	    NAV PAGES (ANIME/MANGA)
+    	NAV PAGES (ANIME/MANGA LIST)
 ==============================================*/
 .desktop > .section-header, .section-header, .list-wrap > .section-name {
     font-family: 'Kanit', serif;
@@ -462,7 +461,7 @@ body {
 .medialist > .lists > .actions { transform: translate(-50px, 25px); }
 
 /*=============================================
-    	    SMALL NAV BAR (UNDER BANNER)
+    	SMALL NAV BAR (UNDER BANNER)
 ==============================================*/
 .header-wrap > .nav-wrap {
     background: rgb(var(--color-foreground));
@@ -485,7 +484,10 @@ body {
 .header-wrap > .nav-wrap > .nav .link:hover { font-size: 1rem; transition: font-size 0.5s ease;}
     
 .header-wrap > .nav-wrap > .nav .link:hover:before { margin-right: 8px; transition: margin-right 0.5s ease; }
-
+    
+/*=============================================
+    	SMALL NAV BAR ICONS
+==============================================*/
 .header-wrap .nav-wrap .link:nth-child(n+1):before { font-family: "FontAwesome"; font-size: 15px; }  
     
 .header-wrap .nav-wrap .link:nth-child(1):before { content: "\f015"; }
